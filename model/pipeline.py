@@ -1,5 +1,6 @@
 import inspect
 import os
+import sys
 from typing import Union
 import PIL
 from diffusers import AutoencoderKL, UNet2DConditionModel, DDIMScheduler
@@ -22,6 +23,9 @@ from ..utils import (
     resize_and_padding,
 )
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from folder_paths import models_dir
+
 
 class CatVTONPipeline:
     def __init__(
@@ -38,7 +42,8 @@ class CatVTONPipeline:
         self.weight_dtype = weight_dtype
 
         self.noise_scheduler = DDIMScheduler.from_pretrained(base_ckpt, subfolder="scheduler")
-        self.vae = AutoencoderKL.from_pretrained("stabilityai/sd-vae-ft-mse").to(device, dtype=weight_dtype)
+        vae_ckpt = os.path.join(models_dir, "sd-vae-ft-mse")
+        self.vae = AutoencoderKL.from_pretrained(vae_ckpt).to(device, dtype=weight_dtype)
         self.unet = UNet2DConditionModel.from_pretrained(base_ckpt, subfolder="unet").to(device, dtype=weight_dtype)
         init_adapter(self.unet, cross_attn_cls=SkipAttnProcessor)  # Skip Cross-Attention
         self.attn_modules = get_trainable_module(self.unet, "attention")
