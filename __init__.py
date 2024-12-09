@@ -1,13 +1,16 @@
 import os
 import torch
+import folder_paths  # Added import
+
+models_dir = folder_paths.models_dir  # Defined 'models_dir'
 from .model.cloth_masker import AutoMasker as AM
 from .model.cloth_masker import vis_mask
 from .model.pipeline import CatVTONPipeline
 from .utils import resize_and_crop, resize_and_padding
 from diffusers.image_processor import VaeImageProcessor
-from huggingface_hub import snapshot_download
 from PIL import Image
 import numpy as np
+ 
 
 from torchvision.transforms.functional import to_pil_image, to_tensor
 
