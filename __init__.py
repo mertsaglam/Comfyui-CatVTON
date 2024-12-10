@@ -30,7 +30,7 @@ class LoadCatVTONPipeline:
     FUNCTION = "load"
     CATEGORY = "CatVTON" 
         
-    def load(self, sd15_inpaint_path, mixed_precision):
+    def load(self, mixed_precision):
         catvton_path = os.path.join(models_dir, "CatVTON")
         sd15_inpaint_path = os.path.join(models_dir, "stable-diffusion-inpainting")
         mixed_precision = {
