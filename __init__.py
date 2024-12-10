@@ -21,7 +21,6 @@ class LoadCatVTONPipeline:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "sd15_inpaint_path": ("STRING", {"default": "runwayml/stable-diffusion-inpainting"}),
                 "mixed_precision": (["fp32", "fp16", "bf16"],),
             }
         }
@@ -33,6 +32,7 @@ class LoadCatVTONPipeline:
         
     def load(self, sd15_inpaint_path, mixed_precision):
         catvton_path = os.path.join(models_dir, "CatVTON")
+        sd15_inpaint_path = os.path.join(models_dir, "stable-diffusion-inpainting")
         mixed_precision = {
             "fp32": torch.float32,
             "fp16": torch.float16,
