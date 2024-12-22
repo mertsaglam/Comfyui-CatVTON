@@ -30,7 +30,7 @@ def ensure_package():
     subprocess.run(cmds, cwd=CUSTOM_NODES_PATH)
 
 if __name__ == "__main__":
-    ensure_package()
+    #ensure_package()
     snapshot_download(repo_id=HF_REPO_ID, local_dir=WEIGHTS_PATH, local_dir_use_symlinks=False)
     snapshot_download(repo_id=VAE_REPO_ID, local_dir=VAE_WEIGHTS_PATH, local_dir_use_symlinks=False)
     snapshot_download(repo_id=HF_INPAINT_REPO_ID, local_dir=INPAINT_WEIGHTS_PATH, local_dir_use_symlinks=False)
