@@ -11,7 +11,7 @@ matplotlib
 numpy
 omegaconf
 opencv_python
-pillow
+pillow==9.5.0
 pycocotools
 pydot
 PyYAML
