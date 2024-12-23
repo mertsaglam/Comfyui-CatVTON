@@ -39,7 +39,7 @@ def ensure_package():
 if __name__ == "__main__":
     # Ensure packages are installed
     # Uncomment the next line if you want to ensure requirements are installed
-    # ensure_package()
+    ensure_package()
     
     # Download weights from Hugging Face repositories
     snapshot_download(repo_id=HF_REPO_ID, local_dir=WEIGHTS_PATH, local_dir_use_symlinks=False)
