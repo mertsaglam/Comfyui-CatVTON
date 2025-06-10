@@ -1,0 +1,24 @@
+# AutoMasker Node Requirements
+# Install with: pip install -r automasker_requirements.txt
+
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.21.0
+opencv-python>=4.5.0
+Pillow>=9.0.0
+
+# DensePose dependencies
+detectron2 @ git+https://github.com/facebookresearch/detectron2.git
+
+# For DensePose specifically
+# Note: DensePose is part of detectron2 projects
+# You may need to install it separately:
+# pip install git+https://github.com/facebookresearch/detectron2.git@main#subdirectory=projects/DensePose
+
+# Image processing
+diffusers>=0.21.0
+
+# ComfyUI should already have these, but listed for completeness
+scipy>=1.7.0
+matplotlib>=3.5.0
